@@ -6,5 +6,6 @@ COPY prisma ./prisma/
 RUN npm install
 RUN npx prisma generate
 COPY . .
-EXPOSE 5000
-CMD ["npm", "run", "dev"]
+EXPOSE 8080
+ENV PORT=8080
+CMD ["npm", "start"]
