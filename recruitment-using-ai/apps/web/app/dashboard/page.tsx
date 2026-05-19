@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -25,17 +25,17 @@ export default function DashboardPage() {
   const isManager = user?.role === 'HIRING_MANAGER'
 
   const allFeatures = [
-    { icon: '✨', title: 'Create New Job',      desc: 'AI-powered job description generator',      color: '#667eea', path: '/dashboard/jobs/create',  roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '💼', title: 'Job Management',       desc: 'View and manage all job postings',           color: '#764ba2', path: '/dashboard/jobs',          roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '📡', title: 'Post to Channels',     desc: 'Post jobs to LinkedIn, Indeed, Naukri',     color: '#06b6d4', path: '/dashboard/post',          roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '📋', title: 'Resume Screening',     desc: 'Ranked candidates with AI scores',           color: '#10b981', path: '/dashboard/candidates',    roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '📊', title: 'Candidate Evaluation', desc: 'Video scores, transcripts and analysis',    color: '#f59e0b', path: '/dashboard/evaluation',    roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '⚖️', title: 'Shortlist Comparison', desc: 'Compare top candidates side-by-side',        color: '#a78bfa', path: '/dashboard/shortlist',     roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '📝', title: 'Offer Letters',         desc: 'AI-generated professional offer letters',   color: '#ef4444', path: '/dashboard/offer',         roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '🔍', title: 'Bias Audit Panel',      desc: 'Pipeline fairness and anomaly detection',   color: '#f97316', path: '/dashboard/bias',          roles: ['HR_ADMIN'] },
-    { icon: '💬', title: 'Manager Feedback',      desc: 'Override AI decisions and rate candidates', color: '#ec4899', path: '/dashboard/feedback',      roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '🎥', title: 'Video Evaluation',      desc: 'AI-powered video interview analysis',       color: '#8b5cf6', path: '/dashboard/video',         roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
-    { icon: '🗂️', title: 'Audit Log',             desc: 'Complete AI decision trail',               color: '#06b6d4', path: '/dashboard/audit',         roles: ['HR_ADMIN'] },
+    { icon: 'âœ¨', title: 'Create New Job',      desc: 'AI-powered job description generator',      color: '#667eea', path: '/dashboard/jobs/create',  roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ’¼', title: 'Job Management',       desc: 'View and manage all job postings',           color: '#764ba2', path: '/dashboard/jobs',          roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ“¡', title: 'Post to Channels',     desc: 'Post jobs to LinkedIn, Indeed, Naukri',     color: '#06b6d4', path: '/dashboard/post',          roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ“‹', title: 'Resume Screening',     desc: 'Ranked candidates with AI scores',           color: '#10b981', path: '/dashboard/candidates',    roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ“Š', title: 'Candidate Evaluation', desc: 'Video scores, transcripts and analysis',    color: '#f59e0b', path: '/dashboard/evaluation',    roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'âš–ï¸', title: 'Shortlist Comparison', desc: 'Compare top candidates side-by-side',        color: '#a78bfa', path: '/dashboard/shortlist',     roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ“', title: 'Offer Letters',         desc: 'AI-generated professional offer letters',   color: '#ef4444', path: '/dashboard/offer',         roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ”', title: 'Bias Audit Panel',      desc: 'Pipeline fairness and anomaly detection',   color: '#f97316', path: '/dashboard/bias',          roles: ['HR_ADMIN'] },
+    { icon: 'ðŸ’¬', title: 'Manager Feedback',      desc: 'Override AI decisions and rate candidates', color: '#ec4899', path: '/dashboard/feedback',      roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸŽ¥', title: 'Video Evaluation',      desc: 'AI-powered video interview analysis',       color: '#8b5cf6', path: '/dashboard/video',         roles: ['HR_ADMIN', 'HIRING_MANAGER'] },
+    { icon: 'ðŸ—‚ï¸', title: 'Audit Log',             desc: 'Complete AI decision trail',               color: '#06b6d4', path: '/dashboard/audit',         roles: ['HR_ADMIN'] },
   ]
 
   const features = user
@@ -44,7 +44,7 @@ export default function DashboardPage() {
 
   const roleColor = isAdmin ? '#10b981' : '#667eea'
   const roleLabel = isAdmin ? 'HR Admin' : isManager ? 'Hiring Manager' : 'User'
-  const roleIcon = isAdmin ? '👑' : '💼'
+  const roleIcon = isAdmin ? 'ðŸ‘‘' : 'ðŸ’¼'
 
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0f0c29, #1a1a2e, #16213e)', fontFamily: 'Segoe UI, sans-serif' }}>
@@ -83,25 +83,25 @@ export default function DashboardPage() {
         <div style={{ marginBottom: 36 }}>
           <h2 style={{ color: 'white', fontSize: 28, fontWeight: 800, margin: 0 }}>Welcome back {roleIcon}</h2>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 15, marginTop: 6 }}>
-            {isAdmin ? 'Full access — HR Admin Dashboard' : 'Hiring Manager Dashboard'}
+            {isAdmin ? 'Full access â€” HR Admin Dashboard' : 'Hiring Manager Dashboard'}
           </p>
         </div>
 
         {/* Role info banner */}
         {!isAdmin && user && (
           <div style={{ background: 'rgba(102,126,234,0.08)', border: '1px solid rgba(102,126,234,0.2)', borderRadius: 12, padding: '14px 20px', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ fontSize: 18 }}>ℹ️</span>
+            <span style={{ fontSize: 18 }}>â„¹ï¸</span>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, margin: 0 }}>
-              <strong style={{ color: '#a78bfa' }}>Hiring Manager</strong> access — Bias Audit & Audit Log are restricted to HR Admins only
+              <strong style={{ color: '#a78bfa' }}>Hiring Manager</strong> access â€” Bias Audit & Audit Log are restricted to HR Admins only
             </p>
           </div>
         )}
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 36 }}>
           {[
-            { label: 'Active Jobs',  value: jobs.filter(j => j.status === 'PUBLISHED').length, icon: '💼', color: '#667eea' },
-            { label: 'Total Jobs',   value: jobs.length,                                        icon: '📋', color: '#10b981' },
-            { label: 'Draft Jobs',   value: jobs.filter(j => j.status === 'DRAFT').length,     icon: '📝', color: '#f59e0b' },
+            { label: 'Active Jobs',  value: jobs.filter(j => j.status === 'PUBLISHED').length, icon: 'ðŸ’¼', color: '#667eea' },
+            { label: 'Total Jobs',   value: jobs.length,                                        icon: 'ðŸ“‹', color: '#10b981' },
+            { label: 'Draft Jobs',   value: jobs.filter(j => j.status === 'DRAFT').length,     icon: 'ðŸ“', color: '#f59e0b' },
           ].map(s => (
             <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
@@ -131,7 +131,7 @@ export default function DashboardPage() {
               </div>
               <h4 style={{ color: 'white', fontSize: 15, fontWeight: 700, margin: 0 }}>{f.title}</h4>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, margin: '6px 0 0', lineHeight: 1.5 }}>{f.desc}</p>
-              <p style={{ color: f.color, fontSize: 12, fontWeight: 600, margin: '12px 0 0' }}>Open →</p>
+              <p style={{ color: f.color, fontSize: 12, fontWeight: 600, margin: '12px 0 0' }}>Open â†’</p>
             </div>
           ))}
         </div>
@@ -146,7 +146,7 @@ export default function DashboardPage() {
               <div key={job.id} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <p style={{ color: 'white', fontWeight: 600, fontSize: 15, margin: 0 }}>{job.title}</p>
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, margin: '4px 0 0' }}>{desc?.jobType} • {desc?.location || 'Remote'}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, margin: '4px 0 0' }}>{desc?.jobType} â€¢ {desc?.location || 'Remote'}</p>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                   <span style={{ fontSize: 12, padding: '4px 12px', borderRadius: 50, fontWeight: 600, background: job.status === 'PUBLISHED' ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)', color: job.status === 'PUBLISHED' ? '#10b981' : '#f59e0b' }}>

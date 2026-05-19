@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function CandidateJobsPage() {
   const router = useRouter()
@@ -41,7 +41,7 @@ export default function CandidateJobsPage() {
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13 }}>👋 {candidateName}</span>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13 }}>ðŸ‘‹ {candidateName}</span>
           <button onClick={logout} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)', padding: '7px 16px', borderRadius: 8, cursor: 'pointer' }}>
             Logout
           </button>
@@ -51,14 +51,14 @@ export default function CandidateJobsPage() {
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px' }}>
         <div style={{ marginBottom: 32 }}>
           <h2 style={{ color: 'white', fontSize: 26, fontWeight: 800, margin: 0 }}>Open Positions</h2>
-          <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 14, margin: '6px 0 0' }}>Find your next opportunity — AI-powered matching</p>
+          <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 14, margin: '6px 0 0' }}>Find your next opportunity â€” AI-powered matching</p>
         </div>
 
         {loading ? (
           <p style={{ color: 'rgba(255,255,255,0.3)', textAlign: 'center', padding: '60px 0' }}>Loading...</p>
         ) : jobs.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '60px 0', background: 'rgba(255,255,255,0.03)', borderRadius: 20, border: '1px solid rgba(255,255,255,0.07)' }}>
-            <p style={{ fontSize: 40, marginBottom: 12 }}>📭</p>
+            <p style={{ fontSize: 40, marginBottom: 12 }}>ðŸ“­</p>
             <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 15 }}>No open positions right now. Check back soon!</p>
           </div>
         ) : (

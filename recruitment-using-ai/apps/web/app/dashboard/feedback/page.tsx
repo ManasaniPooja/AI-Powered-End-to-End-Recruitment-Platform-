@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function FeedbackPage() {
   const router = useRouter()
@@ -62,12 +62,12 @@ export default function FeedbackPage() {
           </div>
           <span style={{ color: 'white', fontWeight: 700, fontSize: 15 }}>Recruitment Using AI</span>
         </div>
-        <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>← Back to Dashboard</button>
+        <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>â† Back to Dashboard</button>
       </nav>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32 }}>
-          <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>💬</div>
+          <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>ðŸ’¬</div>
           <div>
             <h2 style={{ color: 'white', fontSize: 24, fontWeight: 800, margin: 0 }}>Hiring Manager Feedback</h2>
             <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '4px 0 0' }}>Override AI decisions and provide feedback at every stage</p>
@@ -75,7 +75,7 @@ export default function FeedbackPage() {
         </div>
 
         {success && (
-          <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', color: '#34d399', fontSize: 13, padding: '12px 18px', borderRadius: 12, marginBottom: 20 }}>✅ {success}</div>
+          <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', color: '#34d399', fontSize: 13, padding: '12px 18px', borderRadius: 12, marginBottom: 20 }}>âœ… {success}</div>
         )}
 
         <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: '24px 28px', marginBottom: 24 }}>
@@ -113,7 +113,7 @@ export default function FeedbackPage() {
                       <div style={{ display: 'flex', gap: 6 }}>
                         {[1,2,3,4,5].map(star => (
                           <span key={star} onClick={() => updateFeedback(app.candidateId, 'rating', star)}
-                            style={{ fontSize: 24, cursor: 'pointer', color: star <= fb.rating ? '#f59e0b' : 'rgba(255,255,255,0.2)' }}>★</span>
+                            style={{ fontSize: 24, cursor: 'pointer', color: star <= fb.rating ? '#f59e0b' : 'rgba(255,255,255,0.2)' }}>â˜…</span>
                         ))}
                       </div>
                     </div>
@@ -122,9 +122,9 @@ export default function FeedbackPage() {
                       <select value={fb.decision} onChange={e => updateFeedback(app.candidateId, 'decision', e.target.value)}
                         style={{ width: '100%', background: '#1a1a2e', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '9px 12px', color: 'white', fontSize: 13, outline: 'none' }}>
                         <option value="">-- Select --</option>
-                        <option value="SHORTLIST">✅ Shortlist</option>
-                        <option value="REJECT">❌ Reject</option>
-                        <option value="HOLD">⏸ Hold</option>
+                        <option value="SHORTLIST">âœ… Shortlist</option>
+                        <option value="REJECT">âŒ Reject</option>
+                        <option value="HOLD">â¸ Hold</option>
                       </select>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ export default function FeedbackPage() {
 
         {!loading && candidates.length === 0 && jobId && (
           <div style={{ textAlign: 'center', padding: '60px 0', background: 'rgba(255,255,255,0.03)', borderRadius: 20, border: '1px solid rgba(255,255,255,0.07)' }}>
-            <p style={{ fontSize: 40 }}>📭</p>
+            <p style={{ fontSize: 40 }}>ðŸ“­</p>
             <p style={{ color: 'rgba(255,255,255,0.4)' }}>No candidates found for this job.</p>
           </div>
         )}

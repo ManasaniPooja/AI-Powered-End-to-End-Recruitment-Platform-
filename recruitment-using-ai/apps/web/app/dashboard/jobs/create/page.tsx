@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function CreateJobPage() {
   const router = useRouter()
@@ -70,11 +70,11 @@ export default function CreateJobPage() {
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '40px 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32 }}>
           <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
-            ✨
+            âœ¨
           </div>
           <div>
             <h2 style={{ color: 'white', fontSize: 24, fontWeight: 800, margin: 0 }}>Job Creation Wizard</h2>
-            <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '4px 0 0' }}>Enter a rough brief — AI generates a polished job description</p>
+            <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '4px 0 0' }}>Enter a rough brief â€” AI generates a polished job description</p>
           </div>
         </div>
 
@@ -104,7 +104,7 @@ export default function CreateJobPage() {
         </div>
 
         {error && <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', color: '#f87171', fontSize: 13, padding: '12px 18px', borderRadius: 12, marginBottom: 16 }}>{error}</div>}
-        {success && <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', color: '#34d399', fontSize: 13, padding: '12px 18px', borderRadius: 12, marginBottom: 16 }}>✅ {success}</div>}
+        {success && <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', color: '#34d399', fontSize: 13, padding: '12px 18px', borderRadius: 12, marginBottom: 16 }}>âœ… {success}</div>}
 
         {generatedJD && (
           <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, overflow: 'hidden' }}>
@@ -113,7 +113,7 @@ export default function CreateJobPage() {
                 <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #10b981, #059669)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: 'white', fontSize: 14 }}>2</div>
                 <div>
                   <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, margin: 0 }}>Review Generated JD</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: 12, margin: '2px 0 0' }}>AI-generated — review before publishing</p>
+                  <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: 12, margin: '2px 0 0' }}>AI-generated â€” review before publishing</p>
                 </div>
               </div>
               <span style={{ background: 'rgba(16,185,129,0.15)', color: '#34d399', border: '1px solid rgba(16,185,129,0.25)', fontSize: 11, fontWeight: 700, padding: '4px 12px', borderRadius: 50 }}>AI Generated</span>
@@ -141,7 +141,7 @@ export default function CreateJobPage() {
                   <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.07em', margin: '0 0 10px' }}>Requirements</p>
                   {generatedJD.requirements.map((r: string, i: number) => (
                     <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 6 }}>
-                      <span style={{ color: '#667eea', flexShrink: 0 }}>▸</span>
+                      <span style={{ color: '#667eea', flexShrink: 0 }}>â–¸</span>
                       <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, lineHeight: 1.6 }}>{r}</span>
                     </div>
                   ))}
@@ -152,7 +152,7 @@ export default function CreateJobPage() {
                   <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.07em', margin: '0 0 10px' }}>Responsibilities</p>
                   {generatedJD.responsibilities.map((r: string, i: number) => (
                     <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 6 }}>
-                      <span style={{ color: '#10b981', flexShrink: 0 }}>▸</span>
+                      <span style={{ color: '#10b981', flexShrink: 0 }}>â–¸</span>
                       <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, lineHeight: 1.6 }}>{r}</span>
                     </div>
                   ))}

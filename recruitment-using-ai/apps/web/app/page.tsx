@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function Register() {
   const router = useRouter()
@@ -23,7 +23,7 @@ export default function Register() {
       if (!res.ok) { setError(data.message || 'Registration failed'); setLoading(false); return }
       router.push('/login')
     } catch {
-      setError('Server not reachable. Backend running గా ఉందా?')
+      setError('Server not reachable. Backend running à°—à°¾ à°‰à°‚à°¦à°¾?')
       setLoading(false)
     }
   }
@@ -95,7 +95,7 @@ export default function Register() {
 
           {error && (
             <div style={{ background: '#fee2e2', border: '1.5px solid #fecaca', borderRadius: 10, padding: '10px 14px' }}>
-              <p style={{ color: '#991b1b', fontSize: 13, margin: 0 }}>❌ {error}</p>
+              <p style={{ color: '#991b1b', fontSize: 13, margin: 0 }}>âŒ {error}</p>
             </div>
           )}
 
@@ -104,7 +104,7 @@ export default function Register() {
             disabled={loading || !form.name || !form.email || !form.password}
             style={{ background: loading || !form.name || !form.email || !form.password ? '#94a3b8' : 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', padding: '13px', borderRadius: 12, fontSize: 15, fontWeight: 700, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', boxShadow: '0 4px 15px rgba(102,126,234,0.35)', marginTop: 4 }}
           >
-            {loading ? '⟳ Creating Account...' : '🚀 Create Account'}
+            {loading ? 'âŸ³ Creating Account...' : 'ðŸš€ Create Account'}
           </button>
 
           <p style={{ textAlign: 'center', fontSize: 14, color: '#64748b', margin: 0 }}>

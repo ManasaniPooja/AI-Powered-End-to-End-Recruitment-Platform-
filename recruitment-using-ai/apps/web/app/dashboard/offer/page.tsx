@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function OfferPage() {
   const router = useRouter()
@@ -66,17 +66,17 @@ export default function OfferPage() {
     return lines.map((line, i) => {
       const trimmed = line.trim()
       if (!trimmed) return <div key={i} style={{ height: 14 }} />
-      const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 3 && !trimmed.startsWith('-') && !trimmed.startsWith('•')
+      const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 3 && !trimmed.startsWith('-') && !trimmed.startsWith('â€¢')
       if (isHeading) return (
         <div key={i} style={{ marginTop: 24, marginBottom: 8 }}>
           <span style={{ color: '#a78bfa', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{trimmed}</span>
           <div style={{ height: 1, background: 'rgba(167,139,250,0.2)', marginTop: 6 }} />
         </div>
       )
-      if (trimmed.startsWith('-') || trimmed.startsWith('•')) return (
+      if (trimmed.startsWith('-') || trimmed.startsWith('â€¢')) return (
         <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 6, paddingLeft: 4 }}>
-          <span style={{ color: '#667eea', marginTop: 2, flexShrink: 0 }}>▸</span>
-          <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 14, lineHeight: 1.7 }}>{trimmed.replace(/^[-•]\s*/, '')}</span>
+          <span style={{ color: '#667eea', marginTop: 2, flexShrink: 0 }}>â–¸</span>
+          <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 14, lineHeight: 1.7 }}>{trimmed.replace(/^[-â€¢]\s*/, '')}</span>
         </div>
       )
       return <p key={i} style={{ color: 'rgba(255,255,255,0.8)', fontSize: 14, lineHeight: 1.85, margin: '0 0 6px', fontFamily: 'Georgia, serif' }}>{trimmed}</p>
@@ -104,11 +104,11 @@ export default function OfferPage() {
             <div style={{ padding: '30px 36px', borderBottom: '1px solid rgba(255,255,255,0.07)', background: 'rgba(102,126,234,0.07)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, boxShadow: '0 8px 24px rgba(102,126,234,0.35)' }}>
-                  📄
+                  ðŸ“„
                 </div>
                 <div>
                   <h2 style={{ color: 'white', fontSize: 22, fontWeight: 800, margin: 0 }}>Offer Letter Generator</h2>
-                  <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '5px 0 0' }}>AI-powered professional offer letter — auto emailed to candidate</p>
+                  <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '5px 0 0' }}>AI-powered professional offer letter â€” auto emailed to candidate</p>
                 </div>
               </div>
             </div>
@@ -141,13 +141,13 @@ export default function OfferPage() {
 
               {/* Email info box */}
               <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 12, padding: '14px 18px', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ fontSize: 18 }}>📧</span>
+                <span style={{ fontSize: 18 }}>ðŸ“§</span>
                 <p style={{ color: '#6ee7b7', fontSize: 13, margin: 0 }}>Offer letter will be <strong>automatically emailed</strong> to the candidate after generation</p>
               </div>
 
               <button onClick={generate} disabled={generating}
                 style={{ background: generating ? 'rgba(255,255,255,0.07)' : 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', padding: '14px 36px', borderRadius: 12, border: 'none', cursor: generating ? 'not-allowed' : 'pointer', fontSize: 14, fontWeight: 700, boxShadow: generating ? 'none' : '0 8px 24px rgba(102,126,234,0.35)', transition: 'all 0.2s' }}>
-                {generating ? '⏳ Generating & Sending...' : '✨ Generate & Email Offer Letter'}
+                {generating ? 'â³ Generating & Sending...' : 'âœ¨ Generate & Email Offer Letter'}
               </button>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function OfferPage() {
             {/* Email sent banner */}
             {emailSent && (
               <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 14, padding: '16px 24px', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{ fontSize: 22 }}>✅</span>
+                <span style={{ fontSize: 22 }}>âœ…</span>
                 <div>
                   <p style={{ color: '#34d399', fontWeight: 700, margin: 0, fontSize: 14 }}>Offer Letter Emailed Successfully!</p>
                   <p style={{ color: 'rgba(255,255,255,0.4)', margin: '4px 0 0', fontSize: 12 }}>Sent to: {form.candidateEmail}</p>
@@ -223,8 +223,8 @@ export default function OfferPage() {
 
               <div style={{ margin: '0 48px', paddingBottom: 40, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40 }}>
                 {[
-                  { label: 'Authorized Signatory', sub: form.companyName, icon: '🏢' },
-                  { label: 'Candidate Acceptance', sub: form.candidateName, icon: '✍️' },
+                  { label: 'Authorized Signatory', sub: form.companyName, icon: 'ðŸ¢' },
+                  { label: 'Candidate Acceptance', sub: form.candidateName, icon: 'âœï¸' },
                 ].map(s => (
                   <div key={s.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '20px 24px' }}>
                     <div style={{ height: 40, marginBottom: 16, borderBottom: '1px dashed rgba(255,255,255,0.12)' }} />
@@ -244,7 +244,7 @@ export default function OfferPage() {
                   <div style={{ width: 20, height: 20, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <span style={{ color: 'white', fontSize: 10, fontWeight: 'bold' }}>R</span>
                   </div>
-                  <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: 11, margin: 0 }}>{form.companyName} • HR Department</p>
+                  <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: 11, margin: 0 }}>{form.companyName} â€¢ HR Department</p>
                 </div>
                 <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: 11, margin: 0 }}>This document is confidential and intended solely for the addressee</p>
               </div>

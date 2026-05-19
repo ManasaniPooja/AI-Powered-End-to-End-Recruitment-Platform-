@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function JobsPage() {
   const router = useRouter()
@@ -43,7 +43,7 @@ export default function JobsPage() {
 
         {!loading && jobs.length === 0 && (
           <div style={{ textAlign: 'center', padding: 60, background: 'rgba(255,255,255,0.05)', borderRadius: 20, border: '1px solid rgba(255,255,255,0.1)' }}>
-            <p style={{ fontSize: 40, margin: 0 }}>💼</p>
+            <p style={{ fontSize: 40, margin: 0 }}>ðŸ’¼</p>
             <p style={{ color: 'rgba(255,255,255,0.5)', marginTop: 12 }}>No open positions right now. Check back soon!</p>
           </div>
         )}
@@ -58,16 +58,16 @@ export default function JobsPage() {
                     <h3 style={{ fontSize: 20, fontWeight: 700, color: 'white', margin: 0 }}>{job.title}</h3>
                     <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', marginTop: 8, lineHeight: 1.6 }}>{desc?.summary || 'Exciting opportunity to join our team.'}</p>
                     <div style={{ display: 'flex', gap: 8, marginTop: 12, flexWrap: 'wrap' as const }}>
-                      {desc?.experience && <span style={{ fontSize: 12, background: 'rgba(102,126,234,0.2)', color: '#a78bfa', padding: '4px 12px', borderRadius: 50, border: '1px solid rgba(102,126,234,0.3)' }}>📅 {desc.experience}</span>}
-                      {desc?.jobType && <span style={{ fontSize: 12, background: 'rgba(16,185,129,0.2)', color: '#6ee7b7', padding: '4px 12px', borderRadius: 50, border: '1px solid rgba(16,185,129,0.3)' }}>💼 {desc.jobType}</span>}
-                      {desc?.location && <span style={{ fontSize: 12, background: 'rgba(245,158,11,0.2)', color: '#fcd34d', padding: '4px 12px', borderRadius: 50, border: '1px solid rgba(245,158,11,0.3)' }}>📍 {desc.location}</span>}
+                      {desc?.experience && <span style={{ fontSize: 12, background: 'rgba(102,126,234,0.2)', color: '#a78bfa', padding: '4px 12px', borderRadius: 50, border: '1px solid rgba(102,126,234,0.3)' }}>ðŸ“… {desc.experience}</span>}
+                      {desc?.jobType && <span style={{ fontSize: 12, background: 'rgba(16,185,129,0.2)', color: '#6ee7b7', padding: '4px 12px', borderRadius: 50, border: '1px solid rgba(16,185,129,0.3)' }}>ðŸ’¼ {desc.jobType}</span>}
+                      {desc?.location && <span style={{ fontSize: 12, background: 'rgba(245,158,11,0.2)', color: '#fcd34d', padding: '4px 12px', borderRadius: 50, border: '1px solid rgba(245,158,11,0.3)' }}>ðŸ“ {desc.location}</span>}
                     </div>
                   </div>
                   <button
                     onClick={() => router.push(`/jobs/${job.id}/apply`)}
                     style={{ marginLeft: 20, background: 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', padding: '12px 24px', borderRadius: 14, fontSize: 14, fontWeight: 700, border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' as const }}
                   >
-                    Apply Now →
+                    Apply Now â†’
                   </button>
                 </div>
               </div>

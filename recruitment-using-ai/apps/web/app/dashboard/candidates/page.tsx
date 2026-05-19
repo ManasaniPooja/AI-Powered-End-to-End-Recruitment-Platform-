@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function CandidatesPage() {
   const router = useRouter()
@@ -184,3 +184,4 @@ export default function CandidatesPage() {
     </div>
   )
 }
+

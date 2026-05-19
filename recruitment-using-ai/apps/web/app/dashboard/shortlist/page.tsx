@@ -1,15 +1,15 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 const DIMENSIONS = [
-  { key: 'overallScore', label: 'Overall Score', icon: '🎯' },
-  { key: 'skillMatch', label: 'Skill Match', icon: '🛠️' },
-  { key: 'experienceMatch', label: 'Experience', icon: '📋' },
-  { key: 'educationMatch', label: 'Education', icon: '🎓' },
-  { key: 'communicationScore', label: 'Communication', icon: '💬' },
+  { key: 'overallScore', label: 'Overall Score', icon: 'ðŸŽ¯' },
+  { key: 'skillMatch', label: 'Skill Match', icon: 'ðŸ› ï¸' },
+  { key: 'experienceMatch', label: 'Experience', icon: 'ðŸ“‹' },
+  { key: 'educationMatch', label: 'Education', icon: 'ðŸŽ“' },
+  { key: 'communicationScore', label: 'Communication', icon: 'ðŸ’¬' },
 ]
 
 function ScoreBar({ value }: { value: number }) {
@@ -24,10 +24,10 @@ function ScoreBar({ value }: { value: number }) {
 
 function Badge({ status }: { status: string }) {
   const map: Record<string, { bg: string; color: string; label: string }> = {
-    SHORTLISTED: { bg: 'rgba(16,185,129,0.12)', color: '#34d399', label: '✅ Shortlisted' },
-    REJECTED:    { bg: 'rgba(239,68,68,0.12)',  color: '#f87171', label: '❌ Rejected' },
-    PENDING:     { bg: 'rgba(245,158,11,0.12)', color: '#fbbf24', label: '⏳ Pending' },
-    HIRED:       { bg: 'rgba(99,102,241,0.12)', color: '#a78bfa', label: '🎉 Hired' },
+    SHORTLISTED: { bg: 'rgba(16,185,129,0.12)', color: '#34d399', label: 'âœ… Shortlisted' },
+    REJECTED:    { bg: 'rgba(239,68,68,0.12)',  color: '#f87171', label: 'âŒ Rejected' },
+    PENDING:     { bg: 'rgba(245,158,11,0.12)', color: '#fbbf24', label: 'â³ Pending' },
+    HIRED:       { bg: 'rgba(99,102,241,0.12)', color: '#a78bfa', label: 'ðŸŽ‰ Hired' },
   }
   const s = map[status] || { bg: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)', label: status }
   return (
@@ -110,13 +110,13 @@ export default function ShortlistPage() {
           </div>
           <span style={{ color: 'white', fontWeight: 700, fontSize: 15 }}>Recruitment Using AI</span>
         </div>
-        <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>← Back to Dashboard</button>
+        <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>â† Back to Dashboard</button>
       </nav>
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '40px 24px' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32 }}>
-          <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>⚖️</div>
+          <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>âš–ï¸</div>
           <div>
             <h2 style={{ color: 'white', fontSize: 24, fontWeight: 800, margin: 0 }}>Shortlist Comparison</h2>
             <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '4px 0 0' }}>Select up to 4 candidates to compare side-by-side</p>
@@ -140,12 +140,12 @@ export default function ShortlistPage() {
           <>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, margin: 0 }}>
-                {candidates.length} candidates ranked by AI score · {selected.length}/4 selected
+                {candidates.length} candidates ranked by AI score Â· {selected.length}/4 selected
               </p>
               {selected.length >= 2 && (
                 <button onClick={() => setCompareMode(true)}
                   style={{ background: 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', padding: '10px 24px', borderRadius: 10, border: 'none', cursor: 'pointer', fontSize: 13, fontWeight: 700 }}>
-                  Compare {selected.length} Candidates →
+                  Compare {selected.length} Candidates â†’
                 </button>
               )}
             </div>
@@ -163,7 +163,7 @@ export default function ShortlistPage() {
                       transition: 'all 0.2s', position: 'relative'
                     }}>
                     {isSelected && (
-                      <div style={{ position: 'absolute', top: 12, right: 12, width: 22, height: 22, background: '#667eea', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>✓</div>
+                      <div style={{ position: 'absolute', top: 12, right: 12, width: 22, height: 22, background: '#667eea', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>âœ“</div>
                     )}
                     {i < 3 && (
                       <div style={{ position: 'absolute', top: 12, left: 12, background: i === 0 ? '#f59e0b' : i === 1 ? '#9ca3af' : '#cd7c2f', color: 'white', fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 50 }}>
@@ -205,7 +205,7 @@ export default function ShortlistPage() {
               <h3 style={{ color: 'white', fontSize: 18, fontWeight: 700, margin: 0 }}>Side-by-Side Comparison</h3>
               <button onClick={() => setCompareMode(false)}
                 style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, border: '1px solid rgba(255,255,255,0.15)', background: 'none', cursor: 'pointer', padding: '8px 18px', borderRadius: 8 }}>
-                ← Back to selection
+                â† Back to selection
               </button>
             </div>
 
@@ -243,7 +243,7 @@ export default function ShortlistPage() {
                         borderRadius: 12, padding: '14px 16px'
                       }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <span style={{ color: isBest ? '#34d399' : 'white', fontWeight: 700, fontSize: 18 }}>{score || '—'}</span>
+                          <span style={{ color: isBest ? '#34d399' : 'white', fontWeight: 700, fontSize: 18 }}>{score || 'â€”'}</span>
                           {isBest && <span style={{ fontSize: 10, background: 'rgba(16,185,129,0.15)', color: '#34d399', padding: '2px 7px', borderRadius: 50, border: '1px solid rgba(16,185,129,0.3)' }}>Best</span>}
                         </div>
                         <ScoreBar value={score} />
@@ -257,7 +257,7 @@ export default function ShortlistPage() {
             {/* Skills row */}
             <div style={{ display: 'grid', gridTemplateColumns: `180px repeat(${compareCandidates.length}, 1fr)`, gap: 12, marginTop: 8 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 0' }}>
-                <span style={{ fontSize: 16 }}>🏷️</span>
+                <span style={{ fontSize: 16 }}>ðŸ·ï¸</span>
                 <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13 }}>Matched Skills</span>
               </div>
               {compareCandidates.map(app => (
@@ -276,7 +276,7 @@ export default function ShortlistPage() {
 
         {!loading && candidates.length === 0 && jobId && (
           <div style={{ textAlign: 'center', padding: '60px 0', background: 'rgba(255,255,255,0.03)', borderRadius: 20, border: '1px solid rgba(255,255,255,0.07)' }}>
-            <p style={{ fontSize: 40 }}>📭</p>
+            <p style={{ fontSize: 40 }}>ðŸ“­</p>
             <p style={{ color: 'rgba(255,255,255,0.4)' }}>No candidates found for this job.</p>
           </div>
         )}

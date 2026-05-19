@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 function ScoreBar({ label, value }: { label: string; value: number }) {
   const color = value >= 70 ? '#10b981' : value >= 50 ? '#f59e0b' : '#ef4444'
@@ -72,13 +72,13 @@ export default function VideoEvaluationPage() {
       })
       const data = await res.json()
       if (res.ok) {
-        setMsg('✅ Evaluation complete!')
+        setMsg('âœ… Evaluation complete!')
         fetchResponses()
         setSelected((prev: any) => prev ? { ...prev, videoScore: data.videoScore } : prev)
       } else {
-        setMsg(`❌ ${data.error || 'Evaluation failed'}`)
+        setMsg(`âŒ ${data.error || 'Evaluation failed'}`)
       }
-    } catch { setMsg('❌ Network error') }
+    } catch { setMsg('âŒ Network error') }
     setEvaluating(false)
   }
 
@@ -94,12 +94,12 @@ export default function VideoEvaluationPage() {
       })
       const data = await res.json()
       if (res.ok) {
-        setMsg('✅ Invite sent successfully!')
+        setMsg('âœ… Invite sent successfully!')
         setShowInvite(false)
      } else {
-  setMsg(`❌ ${data.message || data.error || 'Failed to send invite'}`)
+  setMsg(`âŒ ${data.message || data.error || 'Failed to send invite'}`)
 }
-    } catch { setMsg('❌ Network error') }
+    } catch { setMsg('âŒ Network error') }
     setSending(false)
   }
 
@@ -117,14 +117,14 @@ export default function VideoEvaluationPage() {
           </div>
           <span style={{ color: 'white', fontWeight: 700, fontSize: 15 }}>Recruitment Using AI</span>
         </div>
-        <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>← Back to Dashboard</button>
+        <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>â† Back to Dashboard</button>
       </nav>
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '40px 24px' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>🎥</div>
+            <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #667eea, #764ba2)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>ðŸŽ¥</div>
             <div>
               <h2 style={{ color: 'white', fontSize: 24, fontWeight: 800, margin: 0 }}>Video Response Evaluation</h2>
               <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '4px 0 0' }}>AI-powered behavioral interview analysis</p>
@@ -139,7 +139,7 @@ export default function VideoEvaluationPage() {
         {/* Invite Panel */}
         {showInvite && (
           <div style={{ background: 'rgba(102,126,234,0.08)', border: '1px solid rgba(102,126,234,0.25)', borderRadius: 16, padding: '24px', marginBottom: 24 }}>
-            <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, margin: '0 0 16px' }}>📨 Send Video Interview Invite</h3>
+            <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, margin: '0 0 16px' }}>ðŸ“¨ Send Video Interview Invite</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: 12, alignItems: 'end' }}>
               <div>
                 <label style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', display: 'block', marginBottom: 8 }}>Select Job</label>
@@ -154,20 +154,20 @@ export default function VideoEvaluationPage() {
                 <select value={inviteCandidate} onChange={e => setInviteCandidate(e.target.value)}
                   style={{ width: '100%', background: '#1a1a2e', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '11px 14px', color: 'white', fontSize: 13, outline: 'none' }}>
                   <option value="">-- Select Candidate --</option>
-                  {candidates.map((c, i) => <option key={c.id} value={c.id}>Candidate #{i + 1} — Score: {c.resumeScore?.overallScore ?? 'N/A'}</option>)}
+                  {candidates.map((c, i) => <option key={c.id} value={c.id}>Candidate #{i + 1} â€” Score: {c.resumeScore?.overallScore ?? 'N/A'}</option>)}
                 </select>
               </div>
               <button onClick={sendInvite} disabled={sending || !inviteCandidate}
                 style={{ background: sending ? 'rgba(255,255,255,0.1)' : 'linear-gradient(135deg, #10b981, #059669)', color: 'white', padding: '11px 22px', borderRadius: 10, border: 'none', cursor: sending ? 'not-allowed' : 'pointer', fontSize: 13, fontWeight: 700, whiteSpace: 'nowrap' as const }}>
-                {sending ? 'Sending...' : '📨 Send Invite'}
+                {sending ? 'Sending...' : 'ðŸ“¨ Send Invite'}
               </button>
             </div>
           </div>
         )}
 
         {msg && (
-          <div style={{ background: msg.startsWith('✅') ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)', border: `1px solid ${msg.startsWith('✅') ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)'}`, borderRadius: 10, padding: '12px 16px', marginBottom: 20 }}>
-            <p style={{ color: msg.startsWith('✅') ? '#34d399' : '#f87171', fontSize: 13, margin: 0, fontWeight: 600 }}>{msg}</p>
+          <div style={{ background: msg.startsWith('âœ…') ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)', border: `1px solid ${msg.startsWith('âœ…') ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)'}`, borderRadius: 10, padding: '12px 16px', marginBottom: 20 }}>
+            <p style={{ color: msg.startsWith('âœ…') ? '#34d399' : '#f87171', fontSize: 13, margin: 0, fontWeight: 600 }}>{msg}</p>
           </div>
         )}
 
@@ -181,7 +181,7 @@ export default function VideoEvaluationPage() {
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: '0 0 8px' }}>{responses.length} video responses</p>
               {responses.length === 0 && (
                 <div style={{ textAlign: 'center', padding: '40px 20px', background: 'rgba(255,255,255,0.03)', borderRadius: 16, border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <p style={{ fontSize: 32 }}>📭</p>
+                  <p style={{ fontSize: 32 }}>ðŸ“­</p>
                   <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>No video responses yet</p>
                   <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: 11 }}>Send invites to candidates above</p>
                 </div>
@@ -204,7 +204,7 @@ export default function VideoEvaluationPage() {
                         <span style={{ color: sc >= 70 ? '#10b981' : sc >= 50 ? '#f59e0b' : '#ef4444', fontSize: 22, fontWeight: 800 }}>{sc}</span>
                       )}
                     </div>
-                    {r.videoUrl && <p style={{ color: 'rgba(102,126,234,0.7)', fontSize: 11, margin: '8px 0 0' }}>🎥 Video available</p>}
+                    {r.videoUrl && <p style={{ color: 'rgba(102,126,234,0.7)', fontSize: 11, margin: '8px 0 0' }}>ðŸŽ¥ Video available</p>}
                   </div>
                 )
               })}
@@ -214,7 +214,7 @@ export default function VideoEvaluationPage() {
             <div>
               {!selected ? (
                 <div style={{ textAlign: 'center', padding: '80px 0', background: 'rgba(255,255,255,0.03)', borderRadius: 20, border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <p style={{ fontSize: 40 }}>👈</p>
+                  <p style={{ fontSize: 40 }}>ðŸ‘ˆ</p>
                   <p style={{ color: 'rgba(255,255,255,0.4)' }}>Select a response to view details</p>
                 </div>
               ) : (
@@ -222,7 +222,7 @@ export default function VideoEvaluationPage() {
                   {/* Video Player */}
                   {selected.videoUrl && (
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: '20px', overflow: 'hidden' }}>
-                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', margin: '0 0 12px' }}>🎥 Video Response</p>
+                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', margin: '0 0 12px' }}>ðŸŽ¥ Video Response</p>
                       <video ref={videoRef} src={selected.videoUrl} controls
                         style={{ width: '100%', borderRadius: 12, background: '#000', maxHeight: 340 }} />
                     </div>
@@ -231,7 +231,7 @@ export default function VideoEvaluationPage() {
                   {/* Transcript */}
                   {selected.transcript && (
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: '20px 24px' }}>
-                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', margin: '0 0 12px' }}>📝 Transcript</p>
+                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', margin: '0 0 12px' }}>ðŸ“ Transcript</p>
                       <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, lineHeight: 1.8, margin: 0, whiteSpace: 'pre-wrap' as const }}>{selected.transcript}</p>
                     </div>
                   )}
@@ -240,8 +240,8 @@ export default function VideoEvaluationPage() {
                   {selected.videoScore ? (
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: '20px 24px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', margin: 0 }}>🤖 AI Evaluation</p>
-                        <span style={{ background: 'rgba(16,185,129,0.15)', color: '#34d399', fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 50, border: '1px solid rgba(16,185,129,0.3)' }}>✅ Evaluated</span>
+                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.06em', margin: 0 }}>ðŸ¤– AI Evaluation</p>
+                        <span style={{ background: 'rgba(16,185,129,0.15)', color: '#34d399', fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 50, border: '1px solid rgba(16,185,129,0.3)' }}>âœ… Evaluated</span>
                       </div>
                       <ScoreBar label="Relevance Score" value={selected.videoScore.relevanceScore ?? 0} />
                       <ScoreBar label="Communication" value={selected.videoScore.communicationScore ?? 0} />
@@ -255,15 +255,15 @@ export default function VideoEvaluationPage() {
                     </div>
                   ) : (
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: '24px', textAlign: 'center' as const }}>
-                      <p style={{ fontSize: 36, margin: '0 0 12px' }}>🤖</p>
+                      <p style={{ fontSize: 36, margin: '0 0 12px' }}>ðŸ¤–</p>
                       <p style={{ color: 'white', fontSize: 15, fontWeight: 600, margin: '0 0 6px' }}>Ready to Evaluate</p>
                       <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, margin: '0 0 20px' }}>
-                        {selected.transcript ? 'Transcript available — run AI evaluation' : 'Waiting for candidate video submission'}
+                        {selected.transcript ? 'Transcript available â€” run AI evaluation' : 'Waiting for candidate video submission'}
                       </p>
                       {selected.transcript && (
                         <button onClick={() => evaluate(selected.id)} disabled={evaluating}
                           style={{ background: evaluating ? 'rgba(255,255,255,0.1)' : 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', padding: '12px 28px', borderRadius: 12, border: 'none', cursor: evaluating ? 'not-allowed' : 'pointer', fontSize: 14, fontWeight: 700 }}>
-                          {evaluating ? '⏳ Evaluating...' : '🤖 Run AI Evaluation'}
+                          {evaluating ? 'â³ Evaluating...' : 'ðŸ¤– Run AI Evaluation'}
                         </button>
                       )}
                     </div>

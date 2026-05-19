@@ -1,16 +1,16 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 const CHANNELS = [
-  { id: 'linkedin',    name: 'LinkedIn',        icon: '💼', color: '#0077b5', desc: 'Reach 900M+ professionals' },
-  { id: 'indeed',      name: 'Indeed',          icon: '🔍', color: '#2164f3', desc: "World's #1 job site" },
-  { id: 'naukri',      name: 'Naukri',          icon: '🇮🇳', color: '#ef4444', desc: "India's top job portal" },
-  { id: 'glassdoor',   name: 'Glassdoor',       icon: '🪟', color: '#0caa41', desc: 'Jobs + company reviews' },
-  { id: 'internshala', name: 'Internshala',     icon: '🎓', color: '#f97316', desc: 'Top platform for freshers' },
-  { id: 'company',     name: 'Company Website', icon: '🌐', color: '#8b5cf6', desc: 'Your careers page' },
+  { id: 'linkedin',    name: 'LinkedIn',        icon: 'ðŸ’¼', color: '#0077b5', desc: 'Reach 900M+ professionals' },
+  { id: 'indeed',      name: 'Indeed',          icon: 'ðŸ”', color: '#2164f3', desc: "World's #1 job site" },
+  { id: 'naukri',      name: 'Naukri',          icon: 'ðŸ‡®ðŸ‡³', color: '#ef4444', desc: "India's top job portal" },
+  { id: 'glassdoor',   name: 'Glassdoor',       icon: 'ðŸªŸ', color: '#0caa41', desc: 'Jobs + company reviews' },
+  { id: 'internshala', name: 'Internshala',     icon: 'ðŸŽ“', color: '#f97316', desc: 'Top platform for freshers' },
+  { id: 'company',     name: 'Company Website', icon: 'ðŸŒ', color: '#8b5cf6', desc: 'Your careers page' },
 ]
 
 export default function PostJobPage() {
@@ -73,7 +73,7 @@ export default function PostJobPage() {
         </div>
 
         <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 24, marginBottom: 20 }}>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 14px' }}>Step 1 — Select Job</p>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 14px' }}>Step 1 â€” Select Job</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {jobs.length === 0 && <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13 }}>No jobs found. Create a job first.</p>}
             {jobs.map(job => (
@@ -81,7 +81,7 @@ export default function PostJobPage() {
                 style={{ background: selectedJob?.id === job.id ? 'rgba(102,126,234,0.15)' : 'rgba(255,255,255,0.03)', border: selectedJob?.id === job.id ? '1px solid rgba(102,126,234,0.5)' : '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '14px 18px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <p style={{ color: 'white', fontWeight: 600, fontSize: 14, margin: 0 }}>{job.title}</p>
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: '3px 0 0' }}>{(job.description as any)?.jobType} • {(job.description as any)?.location || 'Remote'}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: '3px 0 0' }}>{(job.description as any)?.jobType} â€¢ {(job.description as any)?.location || 'Remote'}</p>
                 </div>
                 <span style={{ fontSize: 11, padding: '4px 12px', borderRadius: 50, fontWeight: 600, background: job.status === 'PUBLISHED' ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)', color: job.status === 'PUBLISHED' ? '#10b981' : '#f59e0b' }}>{job.status}</span>
               </div>
@@ -91,7 +91,7 @@ export default function PostJobPage() {
 
         {selectedJob && (
           <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 24, marginBottom: 20 }}>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 14px' }}>Step 2 — Select Channels ({selectedChannels.length} selected)</p>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 14px' }}>Step 2 â€” Select Channels ({selectedChannels.length} selected)</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
               {CHANNELS.map(ch => {
                 const isSelected = selectedChannels.includes(ch.id)
@@ -101,10 +101,10 @@ export default function PostJobPage() {
                     style={{ background: isSelected ? `${ch.color}15` : 'rgba(255,255,255,0.03)', border: isSelected ? `1px solid ${ch.color}50` : '1px solid rgba(255,255,255,0.06)', borderRadius: 14, padding: 16, cursor: posting ? 'not-allowed' : 'pointer', transition: 'all 0.2s' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                       <span style={{ fontSize: 28 }}>{ch.icon}</span>
-                      {status === 'posting' && <span style={{ fontSize: 16 }}>⏳</span>}
-                      {status === 'done' && <span style={{ fontSize: 16 }}>✅</span>}
-                      {status === 'failed' && <span style={{ fontSize: 16 }}>❌</span>}
-                      {!status && isSelected && <span style={{ fontSize: 14, color: ch.color }}>✓</span>}
+                      {status === 'posting' && <span style={{ fontSize: 16 }}>â³</span>}
+                      {status === 'done' && <span style={{ fontSize: 16 }}>âœ…</span>}
+                      {status === 'failed' && <span style={{ fontSize: 16 }}>âŒ</span>}
+                      {!status && isSelected && <span style={{ fontSize: 14, color: ch.color }}>âœ“</span>}
                     </div>
                     <p style={{ color: 'white', fontWeight: 700, fontSize: 14, margin: '10px 0 3px' }}>{ch.name}</p>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: 0 }}>{ch.desc}</p>
@@ -117,10 +117,10 @@ export default function PostJobPage() {
 
         {selectedJob && selectedChannels.length > 0 && (
           <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 24 }}>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 14px' }}>Step 3 — Post Job</p>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 14px' }}>Step 3 â€” Post Job</p>
             {posted.length > 0 && !posting && (
               <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 12, padding: '16px 20px', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 12 }}>
-                <span style={{ fontSize: 24 }}>🎉</span>
+                <span style={{ fontSize: 24 }}>ðŸŽ‰</span>
                 <div>
                   <p style={{ color: '#10b981', fontWeight: 700, fontSize: 14, margin: 0 }}>Successfully posted to {posted.length} channels!</p>
                   <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: '3px 0 0' }}>{CHANNELS.filter(c => posted.includes(c.id)).map(c => c.name).join(', ')}</p>

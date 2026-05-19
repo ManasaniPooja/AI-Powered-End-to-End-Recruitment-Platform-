@@ -1,8 +1,8 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const API = 'http://localhost:5000'
+const API = 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
 export default function BiasPage() {
   const router = useRouter()
@@ -48,13 +48,13 @@ export default function BiasPage() {
           <span style={{ color: 'white', fontWeight: 700, fontSize: 15 }}>Recruitment Using AI</span>
         </div>
         <button onClick={() => router.push('/dashboard')} style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, border: 'none', background: 'none', cursor: 'pointer' }}>
-          ← Back to Dashboard
+          â† Back to Dashboard
         </button>
       </nav>
 
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: '40px 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32 }}>
-          <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #f97316, #ef4444)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>🔍</div>
+          <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #f97316, #ef4444)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>ðŸ”</div>
           <div>
             <h2 style={{ color: 'white', fontSize: 24, fontWeight: 800, margin: 0 }}>Bias Audit Panel</h2>
             <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 13, margin: '4px 0 0' }}>Monitor pipeline fairness and detect statistical anomalies</p>
@@ -122,14 +122,14 @@ export default function BiasPage() {
               <h3 style={{ color: 'white', fontSize: 16, fontWeight: 700, margin: '0 0 16px' }}>Anomaly Flags</h3>
               {anomalies.length === 0 ? (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 10, padding: '14px 18px' }}>
-                  <span style={{ fontSize: 20 }}>✅</span>
-                  <p style={{ color: '#34d399', fontSize: 14, margin: 0, fontWeight: 600 }}>No anomalies detected — pipeline looks fair!</p>
+                  <span style={{ fontSize: 20 }}>âœ…</span>
+                  <p style={{ color: '#34d399', fontSize: 14, margin: 0, fontWeight: 600 }}>No anomalies detected â€” pipeline looks fair!</p>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {anomalies.map((a: string, i: number) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 10, padding: '12px 16px' }}>
-                      <span style={{ fontSize: 16, flexShrink: 0 }}>⚠️</span>
+                      <span style={{ fontSize: 16, flexShrink: 0 }}>âš ï¸</span>
                       <p style={{ color: '#fca5a5', fontSize: 13, margin: 0, lineHeight: 1.6 }}>{a}</p>
                     </div>
                   ))}
