@@ -14,10 +14,10 @@ interface InterviewData {
 
 type Stage = 'loading' | 'welcome' | 'instructions' | 'recording' | 'submitted' | 'expired' | 'error'
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+const API = process.env.NEXT_PUBLIC_API_URL || 'https://ai-powered-end-to-end-recruitment-platform-production.up.railway.app'
 
-export default function InterviewPage({ params }: { params: Promise<{ token: string }> }) {
-  const { token } = params as { token: string }
+export default function InterviewPage({ params }: { params: { token: string } }) {
+  const { token } = params
   const [stage, setStage]         = useState<Stage>('loading')
   const [data, setData]           = useState<InterviewData | null>(null)
   const [currentQ, setCurrentQ]   = useState(0)
@@ -103,7 +103,7 @@ export default function InterviewPage({ params }: { params: Promise<{ token: str
       const blob = new Blob(chunksRef.current, { type: 'video/webm' })
       setVideoBlob(blob)
       setVideoUrl(URL.createObjectURL(blob))
-      setShowTextInput(true) // ── Stop తర్వాత text input show చేయి
+      setShowTextInput(true)
     }
     mr.start(); mediaRef.current = mr; setRecording(true)
   }
@@ -126,19 +126,16 @@ export default function InterviewPage({ params }: { params: Promise<{ token: str
   const submitVideo = async () => {
     if (!videoBlob) return
 
-    // Save current answer
     const updatedAnswers = [...answers]
     updatedAnswers[currentQ] = currentAnswer
     setAnswers(updatedAnswers)
 
     setUploading(true)
     try {
-      // Build transcript from all Q&A
       const transcript = data!.questions.map((q, i) =>
         `Q${i + 1}: ${q}\nA${i + 1}: ${updatedAnswers[i] || 'No text answer provided'}`
       ).join('\n\n')
 
-      // First submit transcript
       const interviewId = data!.interviewId
       await fetch(`${API}/api/interviews/${interviewId}/transcript`, {
         method: 'PATCH',
@@ -146,7 +143,6 @@ export default function InterviewPage({ params }: { params: Promise<{ token: str
         body: JSON.stringify({ transcript })
       })
 
-      // Then submit video
       const form = new FormData()
       form.append('video', videoBlob, 'interview.webm')
       const res = await fetch(`${API}/api/interviews/portal/${token}/submit`, {
@@ -275,7 +271,6 @@ export default function InterviewPage({ params }: { params: Promise<{ token: str
                 <p className="text-zinc-500 text-sm mb-2">Preview your answer:</p>
                 <video src={videoUrl} controls className="w-full rounded-xl mb-4 bg-zinc-900" />
 
-                {/* ── Text Answer Input ── */}
                 {showTextInput && (
                   <div className="mb-4">
                     <label className="text-zinc-400 text-sm font-semibold mb-2 block">
