@@ -17,7 +17,7 @@ type Stage = 'loading' | 'welcome' | 'instructions' | 'recording' | 'submitted' 
 const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
 
 export default function InterviewPage({ params }: { params: Promise<{ token: string }> }) {
-  const { token } = React.use(params)
+  const { token } = params as { token: string }
   const [stage, setStage]         = useState<Stage>('loading')
   const [data, setData]           = useState<InterviewData | null>(null)
   const [currentQ, setCurrentQ]   = useState(0)
