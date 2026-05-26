@@ -1,12 +1,12 @@
 services:
   api:
-    build: ./services/api
+    build: ./services/backend
     ports:
       - '5000:5000'
     env_file:
-      - ./services/api/.env
+      - ./services/backend/.env
   web:
-    build: ./apps/web
+    build: ./apps/frontend
     ports:
       - '3000:3000'
     depends_on:

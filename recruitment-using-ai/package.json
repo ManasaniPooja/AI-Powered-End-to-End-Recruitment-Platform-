@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
-    "dev:web": "npm run dev --workspace=apps/web",
-    "dev:api": "npm run dev --workspace=services/api",
+    "dev:web": "npm run dev --workspace=apps/frontend",
+    "dev:api": "npm run dev --workspace=services/backend",
     "build": "npm run build --workspaces"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.8.0",
+    "concurrently": "^9.2.1",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
